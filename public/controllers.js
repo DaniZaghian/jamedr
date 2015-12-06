@@ -28,7 +28,7 @@ angular.module('myApp.controllers', [])
       .error(function(response){
         console.log('Error: ', response);
       });
-      }
+      };
 
   }])
 
@@ -38,7 +38,7 @@ angular.module('myApp.controllers', [])
     $http.get('/api/users')
       .success(function(response) {
         console.log(response);
-        $scope.posts = response;
+        $scope.users = response;
       })
       .error(function(response) {
         console.log(response);
@@ -66,8 +66,8 @@ angular.module('myApp.controllers', [])
     $scope.delete = function(user) {
       $http.delete('/api/users/' + user._id)
           .success(function(data){
-            var index = $scope.users.indexOf(user)
-            $scope.users.splice(index, 1);          
+            var index = $scope.users.indexOf(user);
+            $scope.users.splice(index, 1);
           })
           .error(function(data) {
 
