@@ -1,26 +1,27 @@
 /*
- * USER MODEL
+ * JAME MODEL
  */
 
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-var UserSchema = new Schema({
+var JameSchema = new Schema({
     username: String,
     sex: String,
     age: Number,
     location: String,
-    bio: String
+    bio: String,
+    image: String
 });
 
 
 // MIDDLEWARE
-UserSchema.pre('save', function(next){
+JameSchema.pre('save', function(next){
   // set a created_at and update updated_at
   next();
 });
 
 // export post model
-var User = mongoose.model('User', UserSchema);
+var Jame = mongoose.model('Jame', JameSchema);
 
-module.exports = User;
+module.exports = Jame;
