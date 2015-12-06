@@ -51,7 +51,7 @@ app.get('/templates/:name', routes.templates);
 
 // API ROUTES
 // post routes
-app.use('/api/posts', routes.postRouter);
+app.use('/api/users', routes.userRouter);
 
 
 // ALL OTHER ROUTES (ANGULAR HANDLES)
