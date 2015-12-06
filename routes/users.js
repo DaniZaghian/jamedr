@@ -6,7 +6,7 @@ var User = require('../models/user.js');
 userRouter.route('/')  // translates to '/api/posts/'
   // send all posts
   .get(function(request, response){
-      User.find().sort('-created_at').exec(function(err, users) {
+      User.find().exec(function(err, users) {
       if (err) { return response.status(404).send(err); }
       response.send(users); 
     });    
@@ -15,7 +15,7 @@ userRouter.route('/')  // translates to '/api/posts/'
   .post(function(req,res){  
    // var post = new Post({ content: req.body.content });
    // post.save(function (err, post) {
-    User.create({ content: req.body.content }, function(err, user){
+    User.create({bio: req.body.bio}, function(err, user){
       if (err) { return res.send(err); }
       console.log(user);
       res.status(201).send(user);
@@ -41,7 +41,7 @@ userRouter.route('/:user_id')   // translates to '/api/posts/:post_id'
 
   // delete one post by id
   .delete(function(req,res){   
-    User.findByIdAndRemove(req.params.post_id, function (err, user) {
+    User.findByIdAndRemove(req.params.user, function (err, user) {
       if (err) { return res.send(err); }
       res.status(200).send('Success');
     });
