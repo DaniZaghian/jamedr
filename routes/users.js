@@ -41,7 +41,7 @@ userRouter.route('/:user_id')   // translates to '/api/posts/:post_id'
 
   // delete one post by id
   .delete(function(req,res){   
-    User.findByIdAndRemove(req.params.user, function (err, user) {
+    User.findByIdAndRemove(req.params.user_id, function (err, user) {
       if (err) { return res.send(err); }
       res.status(200).send('Success');
     });
