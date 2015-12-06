@@ -1,50 +1,50 @@
 var express = require('express');
-var postRouter = express.Router();
+var userRouter = express.Router();
 
-var Post = require('../models/post.js');
+var User = require('../models/user.js');
 
-postRouter.route('/')  // translates to '/api/posts/'
+userRouter.route('/')  // translates to '/api/posts/'
   // send all posts
   .get(function(request, response){
-      Post.find().sort('-created_at').exec(function(err, posts) {
+      User.find().sort('-created_at').exec(function(err, users) {
       if (err) { return response.status(404).send(err); }
-      response.send(posts); 
+      response.send(users); 
     });    
   })
   // create new post
   .post(function(req,res){  
    // var post = new Post({ content: req.body.content });
    // post.save(function (err, post) {
-    Post.create({ content: req.body.content }, function(err, post){
+    User.create({ content: req.body.content }, function(err, user){
       if (err) { return res.send(err); }
-      console.log(post);
-      res.status(201).send(post);
+      console.log(user);
+      res.status(201).send(user);
     });
   });
 
-postRouter.route('/:post_id')   // translates to '/api/posts/:post_id'
+userRouter.route('/:user_id')   // translates to '/api/posts/:post_id'
   // send one post by id
   .get(function(req,res){   
-    Post.findById(req.params.post_id, function(err, post) {
+    User.findById(req.params.user_id, function(err, user) {
       if (err) { return res.status(404).send(err); }
-      res.send(post); 
+      res.send(user); 
     });
   })
 
   // full update of one post by id
   .put(function(req,res){ 
-    Post.findOneAndUpdate({ _id: req.params.post_id}, req.query.post, function (err, post) {
+    User.findOneAndUpdate({ _id: req.params.user_id}, req.query.post, function (err, user) {
       if (err) { return res.send(err); }
-      res.send(post);
+      res.send(user);
     });
   })
 
   // delete one post by id
   .delete(function(req,res){   
-    Post.findByIdAndRemove(req.params.post_id, function (err, post) {
+    User.findByIdAndRemove(req.params.post_id, function (err, user) {
       if (err) { return res.send(err); }
       res.status(200).send('Success');
     });
   });
 
-module.exports = postRouter;
+module.exports = userRouter;

@@ -10,16 +10,16 @@ angular.module('myApp.controllers', [])
   }])
 
   //POSTS
-  .controller('PostsIndexCtrl', ['$scope', '$location', '$http', function ($scope, $location, $http) {
+  .controller('UsersIndexCtrl', ['$scope', '$location', '$http', function ($scope, $location, $http) {
     // GET POSTS
     // make a GET request for all posts with $http
     // $scope.posts = [{content: "blah"},
                     // {content: "a new post"}]
 
-    $http.get('/api/posts')
+    $http.get('/api/users')
       .success(function(response) {
         console.log(response)
-        $scope.posts = response;
+        $scope.users = response;
       })
       .error(function(response) {
         console.log(response)
@@ -30,7 +30,7 @@ angular.module('myApp.controllers', [])
 
 
     // CREATE A POST    
-    $scope.createPost = function() {
+    $scope.create = function() {
       // make a POST request to create the post with $http
       // sned the scope's post object as data
 
@@ -40,7 +40,7 @@ angular.module('myApp.controllers', [])
 
 
     // DELETE A POST
-    $scope.deletePost = function(post) {
+    $scope.delete = function(post) {
       // make a DELETE request for this post
 
     };

@@ -9,10 +9,10 @@ angular.module('myApp', ['ui.router',
 
   .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
-      .state('posts', {
+      .state('user', {
         url: "/",
-        templateUrl: 'templates/posts-index',
-        controller: 'PostsIndexCtrl'
+        templateUrl: 'templates/users-index',
+        controller: 'UsersIndexCtrl'
       });
 
     $urlRouterProvider.otherwise("/state1");
