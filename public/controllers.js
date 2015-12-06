@@ -36,16 +36,13 @@ angular.module('myApp.controllers', [])
   .controller('PostsIndexCtrl', ['$scope', '$location', '$http', function ($scope, $location, $http) {
     // GET POSTS
     $http.get('/api/posts')
-      .success(function (data) {
-        // this callback will be called asynchronously
-        // when the response is available
-        $scope.posts = data.reverse();
+      .success(function(response) {
+        console.log(response)
+        $scope.posts = response;
       })
-      .error(function (data) {
-        // called asynchronously if an error occurs
-        // or server returns response with an error status.
-        alert("error: ", data);
-      });
+      .error(function(response) {
+        console.log(response)
+      })
 
     // NEW POST
     $scope.post = {};
