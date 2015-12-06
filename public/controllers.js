@@ -8,30 +8,6 @@ angular.module('myApp.controllers', [])
   .controller('MainCtrl', ['$rootScope', '$scope', '$location', function ($rootScope, $scope, $location) {
     // INITIALIZATION AND NAVBAR LOGIC
   }])
-  .controller('GifsCtrl', ['$scope', '$http', function($scope, $http){
-    $http.get('http://api.giphy.com/v1/gifs/search?q=kitten&api_key=dc6zaTOxFJmzC ')
-    .success(function(response){
-      console.log(response.data);
-      $scope.gifs = response.data;
-    })
-    .error(function(response){
-      console.log('Error: ', response);
-    });
-
-    $scope.searchGifs = function(){
-      console.log($scope.term);
-      $http.get('http://api.giphy.com/v1/gifs/search?q=' + $scope.term + '&api_key=dc6zaTOxFJmzC ')
-      .success(function(response){
-        console.log(response.data);
-        $scope.gifs = response.data;
-      })
-      .error(function(response){
-        console.log('Error: ', response);
-      });
-      };
-
-  }])
-
   
 .controller('JamesIndexCtrl', ['$scope', '$location', '$http', 'Jame', function ($scope, $location, $http, Jame) {
     
