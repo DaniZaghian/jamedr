@@ -64,6 +64,7 @@ angular.module('myApp.controllers', [])
 
     // DELETE A POST
     $scope.delete = function(user) {
+      console.log(user);
       $http.delete('/api/users/' + user._id)
           .success(function(data){
             var index = $scope.users.indexOf(user)
