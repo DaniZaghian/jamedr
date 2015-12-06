@@ -15,11 +15,23 @@ angular.module('myApp', ['ui.router',
         controller: 'UsersIndexCtrl'
       })
 
+      .state('userShow', {
+        url: "/users/:user_id",
+        templateUrl: 'templates/users-show',
+        controller: "UsersShowCtrl"
+      })
+
       .state('jame', {
         url: "/james",
         templateUrl: 'templates/james-index',
         controller: 'JamesIndexCtrl'
 
+      })
+
+      .state('jameShow', {
+        url: "/james/jame_id",
+        templateUrl: 'templates/james-show',
+        controller: 'JamesShowCtrl'
       });
 
     $urlRouterProvider.otherwise("/state1");
