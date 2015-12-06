@@ -35,7 +35,7 @@ angular.module('myApp.controllers', [])
   //POSTS
   .controller('UsersIndexCtrl', ['$scope', '$location', '$http', function ($scope, $location, $http) {
     // GET POSTS
-    $http.get('/api/posts')
+    $http.get('/api/users')
       .success(function(response) {
         console.log(response)
         $scope.users = response;
@@ -50,7 +50,7 @@ angular.module('myApp.controllers', [])
 
   
     $scope.create = function() {
-      $http.post('/api/posts', $scope.user)
+      $http.post('/api/users', $scope.user)
         .success(function(data){
           $scope.users.unshift(data);
         })
@@ -64,10 +64,10 @@ angular.module('myApp.controllers', [])
 
     // DELETE A POST
     $scope.delete = function(user) {
-      $http.delete('/api/posts/' + user._id)
+      $http.delete('/api/users/' + user._id)
           .success(function(data){
             var index = $scope.users.indexOf(user)
-            $scope.posts.splice(index, 1);          
+            $scope.users.splice(index, 1);          
           })
           .error(function(data) {
 

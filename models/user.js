@@ -10,11 +10,7 @@ var UserSchema = new Schema({
     sex: String,
     age: Number,
     location: String,
-    bio: { 
-      type: String, 
-      required: true, 
-      trim: true 
-    }
+    bio: String
 });
 
 // MIDDLEWARE
