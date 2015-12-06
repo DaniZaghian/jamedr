@@ -15,7 +15,7 @@ angular.module('myApp.controllers', [])
       $scope.gifs = response.data;
     })
     .error(function(response){
-      console.log('Error: ', response)
+      console.log('Error: ', response);
     });
 
     $scope.searchGifs = function(){
@@ -26,7 +26,7 @@ angular.module('myApp.controllers', [])
         $scope.gifs = response.data;
       })
       .error(function(response){
-        console.log('Error: ', response)
+        console.log('Error: ', response);
       });
       }
 
