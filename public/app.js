@@ -10,7 +10,7 @@ angular.module('myApp', ['ui.router',
   .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
       .state('user', {
-        url: "/",
+        url: "/users",
         templateUrl: 'templates/users-index',
         controller: 'UsersIndexCtrl'
       })
