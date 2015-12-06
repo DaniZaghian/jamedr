@@ -5,6 +5,7 @@
 'use strict';
 
 angular.module('myApp', ['ui.router',
+                          'ngResource',
                          'myApp.controllers'])
 
   .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
