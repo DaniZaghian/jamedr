@@ -9,6 +9,12 @@ angular.module('myApp', ['ui.router',
 
   .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
+
+      .state('landing', {
+        url: "/",
+        templateUrl: 'templates/landing-page',
+      })
+
       .state('user', {
         url: "/users",
         templateUrl: 'templates/users-index',

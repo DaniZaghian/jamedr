@@ -9,8 +9,6 @@ angular.module('myApp.controllers', [])
     // INITIALIZATION AND NAVBAR LOGIC
   }])
   
-
-  
 .controller('JamesIndexCtrl', ['$scope', '$location', '$http', 'Jame', function ($scope, $location, $http, Jame) {
     
     $scope.james = Jame.query();
@@ -65,12 +63,12 @@ angular.module('myApp.controllers', [])
     // GET POSTS
     $http.get('/api/users')
       .success(function(response) {
-        console.log(response)
+        console.log(response);
         $scope.users = response;
       })
       .error(function(response) {
-        console.log(response)
-      })
+        console.log(response);
+      });
 
     // NEW POST
     $scope.user = {};
@@ -95,8 +93,8 @@ angular.module('myApp.controllers', [])
       console.log(user);
       $http.delete('/api/users/' + user._id)
           .success(function(data){
-            var index = $scope.users.indexOf(user)
-            $scope.users.splice(index, 1);          
+            var index = $scope.users.indexOf(user);
+            $scope.users.splice(index, 1);
           })
           .error(function(data) {
 
