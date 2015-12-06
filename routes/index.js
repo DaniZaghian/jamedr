@@ -12,3 +12,4 @@ exports.templates = function (req, res) {
 };
 
 exports.userRouter =  require('./users.js');
+exports.jameRouter =  require('./james.js');

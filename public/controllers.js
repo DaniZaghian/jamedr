@@ -32,6 +32,32 @@ angular.module('myApp.controllers', [])
 
   }])
 
+  
+.controller('JamesIndexCtrl', ['$scope', '$location', '$http', 'Jame', function ($scope, $location, $http, Jame) {
+    
+    $scope.james = Jame.query();
+
+    // NEW POST
+    $scope.user = {};
+
+
+  
+    $scope.create = function() {
+      $http.post('/api/james', $scope.jame)
+        .success(function(data){
+          $scope.james.unshift(data);
+        })
+        .error(function(data) {
+          alert("there was a problem saving your post");
+        });
+      // reset post object
+      $scope.jame = {};
+    };
+
+
+}])
+
+
   //POSTS
   .controller('UsersIndexCtrl', ['$scope', '$location', '$http', function ($scope, $location, $http) {
     // GET POSTS

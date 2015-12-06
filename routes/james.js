@@ -1,50 +1,50 @@
 var express = require('express');
-var userRouter = express.Router();
+var jameRouter = express.Router();
 
-var User = require('../models/user.js');
+var Jame = require('../models/jame.js');
 
-userRouter.route('/')  // translates to '/api/posts/'
+jameRouter.route('/')  // translates to '/api/posts/'
   // send all posts
   .get(function(request, response){
-      User.find().exec(function(err, users) {
+      Jame.find().exec(function(err, james) {
       if (err) { return response.status(404).send(err); }
-      response.send(users); 
+      response.send(james); 
     });    
   })
   // create new post
   .post(function(req,res){  
    // var post = new Post({ content: req.body.content });
    // post.save(function (err, post) {
-    User.create({bio: req.body.bio}, function(err, user){
+    Jame.create(req.body, function(err, jame){
       if (err) { return res.send(err); }
-      console.log(user);
-      res.status(201).send(user);
+      console.log(jame);
+      res.status(201).send(jame);
     });
   });
 
-userRouter.route('/:user_id')   // translates to '/api/posts/:post_id'
+jameRouter.route('/:id')   // translates to '/api/james/:id'
   // send one post by id
   .get(function(req,res){   
-    User.findById(req.params.user_id, function(err, user) {
+    Jame.findById(req.params.user_id, function(err, jame) {
       if (err) { return res.status(404).send(err); }
-      res.send(user); 
+      res.send(jame); 
     });
   })
 
   // full update of one post by id
   .put(function(req,res){ 
-    User.findOneAndUpdate({ _id: req.params.user_id}, req.query.post, function (err, user) {
+    Jame.findOneAndUpdate({ _id: req.params.id}, req.query.post, function (err, user) {
       if (err) { return res.send(err); }
-      res.send(user);
+      res.send(jame);
     });
   })
 
   // delete one post by id
   .delete(function(req,res){   
-    User.findByIdAndRemove(req.params.user_id, function (err, user) {
+    Jame.findByIdAndRemove(req.params.id, function (err, jame) {
       if (err) { return res.send(err); }
       res.status(200).send('Success');
     });
   });
 
-module.exports = userRouter;
+module.exports = jameRouter;

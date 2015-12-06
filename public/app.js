@@ -13,6 +13,13 @@ angular.module('myApp', ['ui.router',
         url: "/",
         templateUrl: 'templates/users-index',
         controller: 'UsersIndexCtrl'
+      })
+
+      .state('jame', {
+        url: "/james",
+        templateUrl: 'templates/james-index',
+        controller: 'JamesIndexCtrl'
+
       });
 
     $urlRouterProvider.otherwise("/state1");
