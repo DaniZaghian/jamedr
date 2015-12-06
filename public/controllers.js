@@ -18,12 +18,12 @@ angular.module('myApp.controllers', [])
 
     $http.get('/api/posts')
       .success(function(response) {
-        console.log(response)
+        console.log(response);
         $scope.posts = response;
       })
       .error(function(response) {
-        console.log(response)
-      })
+        console.log(response);
+      });
 
     // NEW POST
     // create an empty 'post' object within the scope
