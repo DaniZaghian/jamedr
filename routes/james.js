@@ -15,7 +15,7 @@ jameRouter.route('/')  // translates to '/api/posts/'
   .post(function(req,res){  
    // var post = new Post({ content: req.body.content });
    // post.save(function (err, post) {
-    Jame.create(req.body, function(err, jame){
+    Jame.create({bio: req.body.bio}, function(err, jame){
       if (err) { return res.send(err); }
       console.log(jame);
       res.status(201).send(jame);

@@ -12,12 +12,12 @@ angular.module('myApp.controllers', [])
 .controller('JamesIndexCtrl', ['$scope', '$location', '$http', 'Jame', function ($scope, $location, $http, Jame) {http://clc.stackoverflow.com/j/ct?an=Y2NieDLxxKqef5c8GECAiZmhhouJVZCBkYGdB8hn2XSHiUGlTPCx3O139mxgcUYuIMHCCJIUBBLMTCCCBUhYP2VimHZ12kwzhWf2LEhKQapYWIHEzT1MDEo1RTcKlrywZ4UokMM0a841JoYp16Qr1BhfwlQhjBGGqWLYfuiWUsvH4AvlNwA&tz=3&ti=189755&utm=%26utm_source%3Dstackoverflow.com%26utm_medium%3Dad%26utm_campaign%3Dlarge-sidebar-tag-themed-rails
     
     $scope.james = Jame.query();
+    $scope.jame = $scope.james[0];
+    console.log($scope.james);
+    //when we implement current user this should take into account only the James that are not in the users james
 
     // NEW POST
-    $scope.user = {};
 
-
-  
     $scope.create = function() {
       $http.post('/api/james', $scope.jame)
         .success(function(data){
@@ -27,10 +27,28 @@ angular.module('myApp.controllers', [])
           alert("there was a problem saving your post");
         });
       // reset post object
-      $scope.jame = {};
     };
 
+    $scope.randJame = function(){
+      var numbJames = $scope.james.length; 
+      console.log(numbJames);
+      var randIndex = Math.floor(Math.random() * (numbJames-1));
+      console.log(randIndex);
+      var newJame = $scope.james[randIndex];
+      console.log(newJame);
+      return newJame;
+      //When we get currentUser, we can add a relationship to add the jame to the list of current useres james
+      //$scope.currentUser.james.push($scope.curJame)
+      //$scope.james.splice(randIndex, 1);
+      //We should also add a check to make sure that the james doesn't include it, 
+    };
 
+    $scope.likeJame = function(jame){
+      //$scope.currentUser.james.push(jame)
+      //$scope.james.splice(randIndex, 1);
+      $scope.jame = $scope.randJame();
+      console.log($scope.randJame());
+    };
 }])
 
   .controller('JamesShowCtrl', ['$scope', '$location', '$http', '$stateParams', function($scope, $location, $http, $stateParams){

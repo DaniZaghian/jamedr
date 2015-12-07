@@ -10,7 +10,8 @@ var UserSchema = new Schema({
     sex: String,
     age: Number,
     location: String,
-    bio: String
+    bio: String,
+    james: [{type: Schema.Types.ObjectId, ref: 'Jame'}]
 });
 
 
