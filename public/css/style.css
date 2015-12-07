@@ -1,9 +1,8 @@
 /*PUT YOUR STYLES HERE*/
 
 .jamepic {
-	height: 70%;
-	max-height: 500px;
-	width: 70%;
+	height: 500px; /* you can use % */
+    width: auto;
 }
 
 div.all-james {
