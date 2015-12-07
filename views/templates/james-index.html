@@ -1,6 +1,7 @@
 <div class = 'james-index'>
 	<button class = 'btn dislike-button'> :(</button>
-<!-- 	{{jame}}
- -->		<jame></jame>
+	<div ng-controller= "JamesIndexCtrl">
+	<jame name = '{{jame.username}}', bio = '{{jame.bio}}'></jame>
+	</div>
 	<button class = 'btn like-button' ng-click='likeJame(jame)'>:)</button>
 </div>

@@ -6,5 +6,8 @@ function jameView(){
   directive.restrict = 'E';
   directive.replace = true;
   directive.templateUrl =  "_jameView.html";
+  directive.scope = {
+  	jame: '@'
+  }
   return directive;
 }
