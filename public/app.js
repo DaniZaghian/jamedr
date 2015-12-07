@@ -13,7 +13,7 @@ angular.module('myApp', ['ui.router',
 
       .state('landing', {
         url: "/",
-        templateUrl: 'templates/landing-page',
+        templateUrl: 'templates/landing-page'
       })
 
       .state('user', {
