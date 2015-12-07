@@ -1,17 +1,26 @@
-
-<div class = 'enter' ng-show = '!jame'>
-	<button ng-click = 'likeJame()'>Enter</button>
-</div>
-<div class = 'james-index' ng-show="jame">
-	<button class = 'btn dislike-button'> :(</button>
-	<div class='card'>
-  		<img class='card-img-top' ng-source='{{jame.image}}' alt='Jame'>
-  		<div class='card-block'>
-	  		<h3 class='card-name'>{{jame.username}} {{jame.age}}</h3>
-	    	<p class='card-text'>{{jame.bio}}</p>
-	    	<img src="{{jame.image}}">
-  		</div>
-
+<div class="container all-james">
+	<div class = 'enter' ng-show = '!jame'>
+		<button class="btn btn-success" ng-click = 'likeJame()'>Enter</button>
 	</div>
-	<button class = 'btn like-button' ng-click='likeJame(jame)'>:)</button>
+
+	<div class = 'james-index' ng-show="jame">
+		  <div class="row">
+			  <div class="col-xs-2"><button class = 'btn btn-danger dislike-button'> :(</button></div>
+			  <div class="col-xs-8">
+			  	<div class='card'>
+			  		<div class='card-block'>
+				    	<img class="jamepic" align="middle" src="{{jame.image}}">
+				    	<h3 class='card-name'>{{jame.username}} {{jame.age}}</h3>
+				    	<p class='card-text'>{{jame.bio}}</p>
+			  		</div>
+
+				</div>
+			  </div>
+			  <div class="col-xs-2">
+			  	<button class = 'btn btn-success like-button' ng-click='likeJame(jame)'>:)</button>
+			  </div>
+		  </div>
+	</div>
+
 </div>
+

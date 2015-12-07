@@ -1,5 +1,19 @@
 /*PUT YOUR STYLES HERE*/
-.card{
-	height: 80%;
-	width: 50%;
+
+.jamepic {
+	height: 70%;
+	max-height: 500px;
+	width: 70%;
+}
+
+div.all-james {
+	text-align: center;
+}	
+
+.like-button {
+	float: left;
+}
+
+.dislike-button {
+	float: right;
 }
