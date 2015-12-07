@@ -10,12 +10,46 @@ var app = express();
 var path = require('path');   // built-in module for dealing with file paths
 var bodyParser = require('body-parser');  // parse form data into req.body
 var mongoose = require('mongoose');   // object document mapper
+var session = require('express-session');
 
 // configure bodyparser
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(bodyParser.json());
+
+app.use(session({
+ saveUninitialized: true,
+ resave: true,
+ secret: 'SuperSecretCookie',
+ cookie: { maxAge: 600000 }
+}));
+
+// middleware to manage sessions
+app.use('/', function (req, res, next) {
+  // saves userId in session for logged-in user
+  req.login = function (user) {
+    req.session.userId = user.id;
+  };
+
+  // finds user currently logged in based on `session.userId`
+  req.currentUser = function (callback) {
+    db.User.findOne({_id: req.session.userId}, function (err, user) {
+      req.user = user;
+      callback(null, user);
+    });
+  };
+
+  // destroy `session.userId` to log out user
+  req.logout = function () {
+    req.session.userId = null;
+    req.user = null;
+  };
+
+  next();
+});
+
 
 // connect to database
 var dbName = 'seed-mean-html';
