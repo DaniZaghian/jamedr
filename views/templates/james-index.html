@@ -1,7 +1,16 @@
-<div class = 'james-index'>
+
+<div class = 'enter' ng-show = '!jame'>
+	<button ng-click = 'likeJame()'>Enter</button>
+</div>
+<div class = 'james-index' ng-show="jame">
 	<button class = 'btn dislike-button'> :(</button>
-	<div ng-controller= "JamesIndexCtrl">
-	<jame name = '{{jame.username}}', bio = '{{jame.bio}}'></jame>
+	<div class='card'>
+  		<img class='card-img-top' ng-source='{{jame.image}}' alt='Jame'>
+  		<div class='card-block'>
+	  		<h3 class='card-name'>{{jame.username}} {{jame.age}}</h3>
+	    	<p class='card-text'>{{jame.bio}}</p>
+  		</div>
+
 	</div>
 	<button class = 'btn like-button' ng-click='likeJame(jame)'>:)</button>
 </div>
