@@ -150,15 +150,38 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Modal title</h4>
+                    <h4 class="modal-title">Sign Up</h4>
                 </div>
                 <div class="modal-body">
+
+                    <form ng-submit="create()">
+                    
+                        <div class="form-group">
+                            <label for="">Username</label>
+                            <input ng-model="user.username"type="text" class="form-control" placeholder="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Sex</label>
+                            <input ng-model="user.sex"type="text" class="form-control" placeholder="sex">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Age</label>
+                            <input ng-model="user.age"type="number" class="form-control" placeholder="age">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Location</label>
+                            <input ng-model="user.location"type="text" class="form-control" placeholder="location">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Bio</label>
+                            <textarea rows="4" ng-model="user.bio" class="form-control" placeholder="tell Jamey about yourself"></textarea>
+                        </div>
                     
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
