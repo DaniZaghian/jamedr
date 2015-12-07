@@ -9,7 +9,7 @@ angular.module('myApp.controllers', [])
     // INITIALIZATION AND NAVBAR LOGIC
   }])
   
-.controller('JamesIndexCtrl', ['$scope', '$location', '$http', 'Jame', function ($scope, $location, $http, Jame) {http://clc.stackoverflow.com/j/ct?an=Y2NieDLxxKqef5c8GECAiZmhhouJVZCBkYGdB8hn2XSHiUGlTPCx3O139mxgcUYuIMHCCJIUBBLMTCCCBUhYP2VimHZ12kwzhWf2LEhKQapYWIHEzT1MDEo1RTcKlrywZ4UokMM0a841JoYp16Qr1BhfwlQhjBGGqWLYfuiWUsvH4AvlNwA&tz=3&ti=189755&utm=%26utm_source%3Dstackoverflow.com%26utm_medium%3Dad%26utm_campaign%3Dlarge-sidebar-tag-themed-rails
+.controller('JamesIndexCtrl', ['$scope', '$location', '$http', 'Jame', function ($scope, $location, $http, Jame) {
     
     $scope.james = Jame.query();
     $scope.jame = $scope.james[0];

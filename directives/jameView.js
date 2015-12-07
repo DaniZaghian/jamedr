@@ -7,4 +7,4 @@ function jameView(){
   directive.replace = true;
   directive.templateUrl =  "_jameView.html";
   return directive;
-}; 
+}
