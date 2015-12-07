@@ -98,6 +98,7 @@ angular.module('myApp.controllers', [])
       $http.post('/api/users', $scope.user)
         .success(function(data){
           $scope.users.unshift(data);
+          window.location = "/james";
         })
         .error(function(data) {
           alert("there was a problem saving your post");
