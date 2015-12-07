@@ -15,7 +15,7 @@ userRouter.route('/')  // translates to '/api/posts/'
   .post(function(req,res){  
    // var post = new Post({ content: req.body.content });
    // post.save(function (err, post) {
-    User.create({bio: req.body.bio}, function(err, user){
+    User.create({username: req.body.username, sex: req.body.sex, age: req.body.age, location: req.body.location, bio: req.body.bio}, function(err, user){
       if (err) { return res.send(err); }
       console.log(user);
       res.status(201).send(user);

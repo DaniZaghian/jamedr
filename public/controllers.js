@@ -12,7 +12,6 @@ angular.module('myApp.controllers', [])
 .controller('JamesIndexCtrl', ['$scope', '$location', '$http', 'Jame', function ($scope, $location, $http, Jame) {
     
     $scope.james = Jame.query();
-    $scope.jame = $scope.james[0];
     console.log($scope.james);
     //when we implement current user this should take into account only the James that are not in the users james
 
@@ -42,6 +41,8 @@ angular.module('myApp.controllers', [])
       //$scope.james.splice(randIndex, 1);
       //We should also add a check to make sure that the james doesn't include it, 
     };
+    $scope.jame = $scope.randJame();
+    console.log($scope.jame)
 
     $scope.likeJame = function(jame){
       //$scope.currentUser.james.push(jame)
