@@ -14,14 +14,7 @@ var JameSchema = new Schema({
     image: String
 });
 
-
-// MIDDLEWARE
-JameSchema.pre('save', function(next){
-  // set a created_at and update updated_at
-  next();
-});
-
-// export post model
+// export jame model
 var Jame = mongoose.model('Jame', JameSchema);
 
 module.exports = Jame;
