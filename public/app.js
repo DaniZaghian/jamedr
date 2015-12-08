@@ -4,8 +4,10 @@
 
 'use strict';
 
-angular.module('myApp', ['ui.router',
+angular.module('myApp', [ 'myApp.services',
+                          'ui.router',
                           'ngResource',
+                          'satellizer',
                          'myApp.controllers'])
 
   .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {

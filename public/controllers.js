@@ -5,14 +5,68 @@
 'use strict';
 
 angular.module('myApp.controllers', [])
-  .controller('MainCtrl', ['$rootScope', '$scope', '$location', function ($rootScope, $scope, $location) {
-    // INITIALIZATION AND NAVBAR LOGIC
+  .controller('MainCtrl', ['$scope', '$rootScope', '$location', 'Auth', '$auth', '$http',  function ($scope, $rootScope, $location, Auth, $auth, $http) {
+
+    // LOGIN/REGISTER
+    $scope.user = {};
+
+    $scope.isAuthenticated = function() {
+      $http.get('/api/me').then(function (data) {
+        if (!!data.data) {
+          $scope.currentUser = data.data;
+        } else {
+          $auth.removeToken();
+        }
+      }, function (data) {
+        $auth.removeToken();
+        $location.path('/');
+      });
+    };
+
+    $scope.isAuthenticated();
+
+    $scope.signup = function() {
+      $auth.signup($scope.user)
+        .then(function(response) {
+          console.log(response)
+          $auth.setToken(response);
+          $scope.isAuthenticated();
+          $scope.user = {};
+        })
+        .catch(function(response) {
+          console.log(response)
+        });
+    };
+
+    $scope.login = function() {
+      $auth.login($scope.user)
+        .then(function(response) {
+          $auth.setToken(response.data.token);
+          $scope.isAuthenticated();
+          $scope.user = {};
+        })
+        .catch(function(response) {
+          console.log(response)
+        });
+    };
+
+    $scope.logout = function() {
+      $auth.logout()
+        .then(function() {
+          $auth.removeToken();
+          $scope.currentUser = null;
+          $location.path('/')
+        });
+    };
   }])
+
   
-.controller('JamesIndexCtrl', ['$scope', '$location', '$http', 'Jame', function ($scope, $location, $http, Jame) {
+.controller('JamesIndexCtrl', ['$scope', '$location', '$http', 'Jame', '$timeout', function ($scope, $location, $http, Jame, $timeout) {
     
     $scope.james = Jame.query();
-    $scope.jame = $scope.james[0];
+    $scope.classes={
+      shake: ''
+    };
     console.log($scope.james);
     //when we implement current user this should take into account only the James that are not in the users james
 
@@ -42,12 +96,21 @@ angular.module('myApp.controllers', [])
       //$scope.james.splice(randIndex, 1);
       //We should also add a check to make sure that the james doesn't include it, 
     };
+    $scope.jame = $scope.randJame();
+    console.log($scope.jame)
 
     $scope.likeJame = function(jame){
       //$scope.currentUser.james.push(jame)
       //$scope.james.splice(randIndex, 1);
       $scope.jame = $scope.randJame();
       console.log($scope.randJame());
+    };
+
+    $scope.dislikeJame = function(jame){
+      $scope.classes.shake = "shake";
+      $timeout(function () {
+        $scope.classes.shake = "";
+      }, 1000);
     };
 }])
 
@@ -76,51 +139,63 @@ angular.module('myApp.controllers', [])
   }])
 
 
-  //POSTS
-  .controller('UsersIndexCtrl', ['$scope', '$location', '$http', '$window', function ($scope, $location, $http, $window) {
-    // GET POSTS
-    $http.get('/api/users')
-      .success(function(response) {
-        console.log(response);
-        $scope.users = response;
-      })
-      .error(function(response) {
-        console.log(response);
-      });
+  //USERS
+    .controller('UsersIndexCtrl', ['$scope', '$http', '$auth', 'Auth', '$location', function($scope, $http, $auth, Auth, $location) {
+    $http.get('/api/me').then(function(data) {
+      $scope.user = data.data;
+    });  
+    $scope.update = function() {
+      console.log('hi fucker');
+      $http.put('api/me', $scope.user);
+      $location.path('/profile');
+    }  
+  }]);
 
-    // NEW POST
-    $scope.user = {};
+
+
+
+  // .controller('UsersIndexCtrl', ['$scope', '$location', '$http', function ($scope, $location, $http) {
+  //   // GET USERS
+  //   $http.get('/api/users')
+  //     .success(function(response) {
+  //       console.log(response);
+  //       $scope.users = response;
+  //     })
+  //     .error(function(response) {
+  //       console.log(response);
+  //     });
+
+  //   // NEW POST
+  //   $scope.user = {};
 
 
   
-    $scope.create = function() {
-      $http.post('/api/users/users', $scope.user)
-        .success(function(data){
-          $scope.users.unshift(data);
-          $location.path('/james');
-          $scope.$apply();
-          // $window.location.href = '/james-index.html';
-        })
-        .error(function(data) {
-          alert("there was a problem saving your post");
-        });
-      // reset post object
-      $scope.user = {};
-    };
+  //   $scope.create = function() {
+  //     $http.post('/api/users', $scope.user)
+  //       .success(function(data){
+  //         $scope.users.unshift(data);
+  //         window.location = "/james";
+  //       })
+  //       .error(function(data) {
+  //         alert("there was a problem saving your post");
+  //       });
+  //     // reset post object
+  //     $scope.user = {};
+  //   };
 
 
-    // DELETE A POST
-    $scope.delete = function(user) {
-      console.log(user);
-      $http.delete('/api/users/' + user._id)
-          .success(function(data){
-            var index = $scope.users.indexOf(user);
-            $scope.users.splice(index, 1);
-          })
-          .error(function(data) {
+  //   // DELETE A POST
+  //   $scope.delete = function(user) {
+  //     console.log(user);
+  //     $http.delete('/api/users/' + user._id)
+  //         .success(function(data){
+  //           var index = $scope.users.indexOf(user);
+  //           $scope.users.splice(index, 1);
+  //         })
+  //         .error(function(data) {
 
-          });
-    };
+  //         });
+  //   };
 
 
-  }]);
+  // }]);

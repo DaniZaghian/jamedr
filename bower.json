@@ -8,6 +8,7 @@
     "angular-sanitize": "latest",
     "angular-touch": "latest",
     "bootstrap": "latest",
-    "font-awesome": "latest"
+    "font-awesome": "latest",
+    "satellizer": "~0.12.5"
   }
 }
