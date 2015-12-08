@@ -9,9 +9,12 @@ angular.module('myApp.controllers', [])
     // INITIALIZATION AND NAVBAR LOGIC
   }])
   
-.controller('JamesIndexCtrl', ['$scope', '$location', '$http', 'Jame', function ($scope, $location, $http, Jame) {
+.controller('JamesIndexCtrl', ['$scope', '$location', '$http', 'Jame', '$timeout', function ($scope, $location, $http, Jame, $timeout) {
     
     $scope.james = Jame.query();
+    $scope.classes={
+      shake: ''
+    };
     console.log($scope.james);
     //when we implement current user this should take into account only the James that are not in the users james
 
@@ -50,6 +53,13 @@ angular.module('myApp.controllers', [])
       $scope.jame = $scope.randJame();
       console.log($scope.randJame());
     };
+
+    $scope.dislikeJame = function(jame){
+      $scope.classes.shake = "shake";
+      $timeout(function () {
+        $scope.classes.shake = "";
+      }, 1000);
+    };
 }])
 
   .controller('JamesShowCtrl', ['$scope', '$location', '$http', '$stateParams', function($scope, $location, $http, $stateParams){
@@ -77,9 +87,9 @@ angular.module('myApp.controllers', [])
   }])
 
 
-  //POSTS
+  //USERS
   .controller('UsersIndexCtrl', ['$scope', '$location', '$http', function ($scope, $location, $http) {
-    // GET POSTS
+    // GET USERS
     $http.get('/api/users')
       .success(function(response) {
         console.log(response);
