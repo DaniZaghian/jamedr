@@ -10,6 +10,7 @@ var app = express();
 var path = require('path');   // built-in module for dealing with file paths
 var bodyParser = require('body-parser');  // parse form data into req.body
 var mongoose = require('mongoose');   // object document mapper
+var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
 // configure bodyparser
@@ -53,7 +54,12 @@ app.use('/', function (req, res, next) {
 
 // connect to database
 var dbName = 'seed-mean-html';
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/' + dbName);    
+var options = {
+  server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
+  replset: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }
+};
+
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/' + dbName, options);    
 
 // serve public folder as static assets on the root route
 var publicPath = path.join(__dirname, 'public');

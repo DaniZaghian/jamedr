@@ -8,25 +8,25 @@ var User = require('../models/user.js');
 
 
 // signup route
-userRouter.get('/signup', function (req, res) {
-    req.currentUser(function (err, user) {
-   //  // redirect if current user
-     if (user) {
-       res.redirect('profile');
-     } else {
-      res.render('signup');
-     }
-   });
-});
+// userRouter.get('/signup', function (req, res) {
+//     req.currentUser(function (err, user) {
+//    //  // redirect if current user
+//      if (user) {
+//        res.redirect('profile');
+//      } else {
+//       res.render('signup');
+//      }
+//    });
+// });
 
 //user submits the signup form
-userRouter.post('/login', function (req, res) {
+userRouter.post('/users', function (req, res) {
   // grab user data from params (req.body)
-  var newUser = req.body.user;
+  var newUser = req.body;
+  console.log(req.body);
   // create new user with secure password
-  User.User.createSecure(newUser.username, newUser.password, function (err, user) {
+  User.createSecure(newUser.username, newUser.password, function (err, user) {
     //req.session.userId = newUser._id;
-    res.redirect('/login');
   });
 });
 

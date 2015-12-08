@@ -14,6 +14,7 @@ angular.module('myApp', ['ui.router',
       .state('landing', {
         url: "/",
         templateUrl: 'templates/landing-page',
+        controller: 'UsersIndexCtrl'
       })
 
       .state('user', {

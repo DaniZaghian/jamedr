@@ -35,50 +35,38 @@
 
     <!-- Services -->
     <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
-    <section id="services" class="services bg-primary">
+    <section id="services" class="services">
         <div class="container">
             <div class="row text-center">
                 <div class="col-lg-10 col-lg-offset-1">
-                    <h2>Our Services</h2>
+                    <h2>Testimonials</h2>
                     <hr class="small">
                     <div class="row">
                         <div class="col-sm-4 col-xs-12">
                             <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-cloud fa-stack-1x text-primary"></i>
-                            </span>
+                                <img src="/images/josh.png">
                                 <h4>
-                                    <strong>Service Name</strong>
+                                    <strong>Josh Shin</strong><br>
                                 </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
+                                <p>"I was so nervous, but Jamey was the perfect gentleman."</p><br>
                             </div>
                         </div>
                         <div class="col-sm-4 col-xs-12">
                             <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-compass fa-stack-1x text-primary"></i>
-                            </span>
+                                <img src="/images/dani.png">
                                 <h4>
-                                    <strong>Service Name</strong>
+                                    <strong>Dani Zaghian</strong><br>
                                 </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
+                                <p>"Is this a joke?"</p><br><br>
                             </div>
                         </div>
                         <div class="col-sm-4 col-xs-12">
                             <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-flask fa-stack-1x text-primary"></i>
-                            </span>
+                                <img src="/images/jamey.png">
                                 <h4>
-                                    <strong>Service Name</strong>
+                                    <strong>Jamey Hollis</strong><br>
                                 </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
+                                <p>"I have had a great time using Jamedr. It's going so well."</p><br>
                             </div>
                         </div>
                     </div>
@@ -94,7 +82,8 @@
     <!-- Callout -->
     <aside id="callout" class="callout">
         <div class="text-vertical-center">
-            <h1>Vertically Centered Text</h1>
+            <h1>Jamey Edward Hollis</h1>
+            <a href="#portfolio" class="btn btn-dark btn-lg">See More</a>
         </div>
     </aside>
 
@@ -103,40 +92,39 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h2>Our Work</h2>
+                    <h2>Different sides of Jamey</h2>
                     <hr class="small">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="portfolio-item">
                                 <a href="#">
-                                    <img class="img-portfolio img-responsive" src="http://i.imgur.com/DD2Lbi3.jpg">
+                                    <img class="img-portfolio img-responsive" src="http://i.imgur.com/yQflKpT.jpg">
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="portfolio-item">
                                 <a href="#">
-                                    <img class="img-portfolio img-responsive" src="http://i.imgur.com/ZrXhdFK.jpg">
+                                    <img class="img-portfolio img-responsive" src="http://i.imgur.com/KFybSSg.jpg">
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="portfolio-item">
                                 <a href="#">
-                                    <img class="img-portfolio img-responsive" src="http://i.imgur.com/iQJqgdY.jpg">
+                                    <img class="img-portfolio img-responsive" src="http://i.imgur.com/RY4aM8s.jpg">
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="portfolio-item">
                                 <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-4.jpg">
+                                    <img class="img-portfolio img-responsive" src="http://i.imgur.com/XkAEN1F.jpg">
                                 </a>
                             </div>
                         </div>
                     </div>
                     <!-- /.row (nested) -->
-                    <a href="#" class="btn btn-dark">View More Items</a>
                 </div>
                 <!-- /.col-lg-10 -->
             </div>
@@ -146,49 +134,77 @@
     </section>
 
     <!-- Call to Action -->
-    <aside class="call-to-action bg-primary">
+    <aside class="call-to-action">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h3>The buttons below are impossible to resist.</h3>
-                    <a href="#" class="btn btn-lg btn-light">Click Me!</a>
-                    <a href="#" class="btn btn-lg btn-dark">Look at Me!</a>
+                    <h3>Ready to start your Jamedr experience? Sign up now!</h3>
+                    <button type="button" class="btn btn-lg btn-dark" data-toggle="modal" data-target="#signup-modal">Join Jamedr</button>
                 </div>
             </div>
         </div>
     </aside>
+
+    <div class="modal fade" id="signup-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Sign Up</h4>
+                </div>
+                <div class="modal-body">
+
+                    <form ng-submit='create()'>
+                    
+                        <div class="form-group">
+                            <label for="">Username</label>
+                            <input ng-model="user.username"type="text" class="form-control" placeholder="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Sex</label>
+                            <input ng-model="user.sex"type="text" class="form-control" placeholder="sex">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Age</label>
+                            <input ng-model="user.age"type="number" class="form-control" placeholder="age">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Location</label>
+                            <input ng-model="user.location"type="text" class="form-control" placeholder="location">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Bio</label>
+                            <textarea rows="4" ng-model="user.bio" class="form-control" placeholder="tell Jamey about yourself"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Password</label>
+                            <input ng-model="user.passwordDigest"type="password" class="form-control" placeholder="password">
+                        </div>
+                    <input type="submit" value="submit" class="btn btn-success">
+                    
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h4><strong>Start Bootstrap</strong>
+                    <h4><strong>Jamedr</strong>
                     </h4>
-                    <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
                     <ul class="list-unstyled">
-                        <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
-                        <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:name@example.com">name@example.com</a>
+                        <li><i class="ion-ios-telephone"></i> (510) 407-6729</li>
+                        <li><i class="ion-android-mail"></i>  <a href="mailto:hollisjamey@gmail.com">hollisjamey@gmail.com</a>
                         </li>
                     </ul>
-                    <br>
-                    <ul class="list-inline">
-                        <li>
-                            <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
-                        </li>
-                    </ul>
-                    <hr class="small">
-                    <p class="text-muted">Copyright &copy; Your Website 2014</p>
                 </div>
             </div>
         </div>
     </footer>
+
 
     <!-- Custom Theme JavaScript -->
     <script>

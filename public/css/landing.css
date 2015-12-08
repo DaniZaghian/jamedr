@@ -96,10 +96,17 @@ div.ng-scope {
 
 .services {
     padding: 50px 0;
+    background-color: #659D32;
 }
 
 .service-item {
     margin-bottom: 30px;
+}
+
+.service-item img {
+    border-radius: 200px;
+    width: 175px;
+    height: 175px;
 }
 
 /* Callout */
@@ -138,6 +145,7 @@ div.ng-scope {
 
 .call-to-action {
     padding: 50px 0;
+    background-color: #659D32;
 }
 
 .call-to-action .btn {
@@ -159,5 +167,5 @@ div.ng-scope {
 /* Footer */
 
 footer {
-    padding: 100px 0;
+    padding: 30px 0;
 }
