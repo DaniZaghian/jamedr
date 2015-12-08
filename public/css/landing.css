@@ -16,6 +16,14 @@ body {
     font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+#login-button {
+    position: absolute;
+    z-index: 2;
+    right: 10px;
+    top: 10px;
+
+}
+
 .text-vertical-center {
     display: table-cell;
     text-align: center;
